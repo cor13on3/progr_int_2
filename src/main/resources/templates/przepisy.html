@@ -1,0 +1,14 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Kamil gotuje 🍗</title>
+</head>
+<body>
+<h1>PRZEPISY</h1>
+<tr th:each="p : ${przepisy}">
+    <td><span th:text="${p.Tresc}">Treść</span></td>
+    <td><a th:href="/@'/dajprzepis/' + ${p.ID}}">ZOABCZ</a></td>
+</tr>
+<a href="/nowyprzepis"><button>DODAJ PRZEPIS</button></a>
+</body>
+</html>
