@@ -1,14 +1,30 @@
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8"/>
     <title>Kamil gotuje 🍗</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-<h1>PRZEPISY</h1>
-<tr th:each="p : ${przepisy}">
-    <td><span th:text="${p.Tresc}">Treść</span></td>
-    <td><a th:href="/@'/dajprzepis/' + ${p.ID}}">ZOABCZ</a></td>
-</tr>
-<a href="/nowyprzepis"><button>DODAJ PRZEPIS</button></a>
+    <div class="container" style="background-color: #e6e6ff; height: 100%;">
+        <h1 class="display-4">PRZEPISY WSPANIAŁYCH UŻYTKOWNIKÓW</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Danie</th>
+                <th scope="col">Rodzaj dania</th>
+                <th scope="col">Chcesz więcej?</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${lista}">
+                <td><span th:text="${p.Tytul}"></span></td>
+                <td><span th:text="${p.Rodzaj}"></span></td>
+                <td><a th:href="@{'/dajprzepis/' + ${p.ID}}">ZOBACZ</a></td >
+            </tr>
+            </tbody>
+        </table>
+        <span>Pokaż co potrafisz i.. </span>
+        <a href="/nowyprzepis"><button class="btn btn-primary">DODAJ SWÓJ PRZEPIS</button></a>
+    </div>
 </body>
 </html>

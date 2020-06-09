@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" style="background-color: #e6e6ff; height: 100%;">
+    <h1 >Rejestracja</h1>
+        <form action="/register" method="post" th:object="${uzytkownik}">
+            <div class="form-group">
+                <input class="form-control" th:field="${uzytkownik.Email}" type="email" placeholder="Podaj email:">
+            </div>
+            <div class="form-group">
+                <input class="form-control" th:field="${uzytkownik.Haslo}" type="password" placeholder="Podaj hasło: ">
+            </div>
+            <button type="submit" class="btn btn-primary">Zarejestruj</button>
+        </form>
+        <br/>
+        <a href="/"><button class="btn btn-primary" >POWRÓT</button></a>
+    </div>
+</body>
+</html>

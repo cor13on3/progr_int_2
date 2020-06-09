@@ -2,12 +2,39 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Kamil gotuje 🍗</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-<h1>NOWY PRZEPIS</h1>
-<form method="post" action="/dodajprzepis">
-    <input type="text" name="tresc"/>
-    <button type="submit">DODAJ</button>
-</form>
+    <div class="container" style="background-color: #e6e6ff; height: 100%;">
+        <h1 class="display-4">POKAŻ CO POTRAFISZ! :)</h1>
+        <br/>
+        <form action="$" th:action="@{/dodajprzepis}" th:object="${przepis}" method="post">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Rodzaj (obiad, przekąska, napój, ciasto): </td>
+                    <td><input type="text" th:field="*{Rodzaj}"></td>
+                </tr>
+                <tr>
+                    <td>Poziom trudności (1-5): </td>
+                    <td><input type="number" th:field="*{Trudnosc}"></td>
+                </tr>
+                <tr>
+                    <td>Tytuł: </td>
+                    <td><input type="text" th:field="*{Tytul}"></td>
+                </tr>
+                <tr>
+                    <td>Treść: </td>
+                    <td><textarea rows="6" th:field="*{Tresc}"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Autor: </td>
+                    <td><input type="text" th:field="*{Autor}"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="btn btn-primary" type="submit">DODAJ</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 </html>

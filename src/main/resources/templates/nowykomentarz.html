@@ -2,13 +2,28 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Kamil gotuje 🍗</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-<h1>NOWY KOMENTARZ</h1>
-<form method="post" action="/dodajkomentarz">
-    <input type="text" name="autor"/>
-    <input type="text" name="tresc"/>
-    <button type="submit">DODAJ</button>
-</form>
+<div class="container" style="background-color: #e6e6ff; height: 100%;">
+    <h1 class="display-4">POWIEDZ CO O TYM MYŚLISZ 🤔</h1>
+    <br/>
+    <form action="$" th:action="@{/dodajkomentarz}" th:object="${komentarz}" method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Treść: </td>
+                <td><input type="text" th:field="*{Tresc}"></td>
+            </tr>
+            <tr>
+                <td>Autor: </td>
+                <td><input type="text" th:field="*{Autor}"></td>
+            </tr>
+            <input type="hidden" th:field="*{IDPrzepisu}" value="${komentarz.getIDPrzepisu()}">
+            <tr>
+                <td colspan="2"><button class="btn btn-primary" type="submit">DODAJ</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

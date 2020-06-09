@@ -2,16 +2,33 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Kamil gotuje 🍗</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-<h1>LOGOWANIE:</h1>
-<form action="login" method="post">
-    <label>Email: </label>
-    <input type="text" name="email" />
-    <label>Hasło: </label>
-    <input type="password" name="haslo"/>
-    <input type="submit" value="ZALOGUJ"/>
-</form>
-<a href="/przepisy"><button>PRZEGLĄDAJ PRZEPISY</button></a>
+<div class="container" style="background-color: #e6e6ff; height: 100%;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Kamil gotuje 🍗</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Strona główna <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/przepisy">Przepisy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/nowyprzepis">Dodaj przepis</a>
+                </li>
+                <li th:if="${notlogged}" class="nav-item">
+                    <a class="nav-link" href="/login">Zaloguj</a>
+                </li>
+                <li th:if="${notlogged}" class="nav-item">
+                    <a class="nav-link" href="/register">Zarejestruj</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="display-4">Kamil gotuje - przepisy Kamila i nie tylko! :)</h1>
+</div>
 </body>
 </html>

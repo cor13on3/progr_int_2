@@ -2,10 +2,34 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Kamil gotuje 🍗</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-<h1>PRZEPIS</h1>
-    <span th:text="${przepis.Tresc}">Treść</span>
-<a href="/nowykomentarz"><button>DODAJ KOMENTARZ</button></a>
+<div class="container" style="background-color: #e6e6ff; height: 100%;">
+    <h1 class="display-4">ZRÓB TO SAM! 🍽</h1>
+    <h2 th:text="${przepis.Tytul}"></h2>
+    <span>Rodzaj: </span>
+    <span th:text="${przepis.Rodzaj}"></span>
+    <br/>
+    <span>Poziom trudności (1-5): </span>
+    <span th:text="${przepis.Trudnosc}"></span>
+    <br/>
+    <h5>A wystarczy tylko zrobić tak: </h5>
+    <p th:text="${przepis.Tresc}"></p>
+    <label>Autor: </label>
+    <span th:text="${przepis.Autor}"></span>
+    <h4>KOMENTARZE WSPANIAŁYCH UŻYTKOWNIKÓW 🤠</h4>
+    <div th:each="k : ${komentarze}">
+        <label>Autor: </label>
+        <span th:text="${k.Autor}"></span>
+        <br/>
+        <label>Treść: </label>
+        <span th:text="${k.Tresc}"></span>
+    </div>
+    <a th:href="@{'/nowykomentarz/' + ${przepis.ID}}"><button class="btn btn-primary">DODAJ SWÓJ KOMENTARZ</button></a>
+    <br/>
+    <br/>
+    <a href="/przepisy"><button class="btn btn-primary" >POWRÓT</button></a>
+</div>
 </body>
 </html>
